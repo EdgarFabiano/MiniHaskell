@@ -1,0 +1,15 @@
++ Converter Expressão para uma classe abstrata
+
++ Escrever mais testes para a expressão *aplicação de função* 
+
++ Escrever uma função fatorial e verificar se funciona o mecanismo de recursão. Para isso, novos tipos de expressão são necessários (multiplicação, igualdade, maior igual, menor igual, ...).
+
++ Corrigir os visitors já implementados, mas que estão "quebrados" na versão 03 da implementação do projeto MiniHaskell .
+
++ Incluir o tipo Lista, que pode ser uma lista vazia ou uma lista com um elemento seguido de uma outra lista (é um tipo recursivo). Em Haskell, seria algo como:
+
+data List a = Nill | a (List a)
+
+* Escreva funções que manipulam listas (tamanho, elemento, ...).
+
+* Implementar um parser e um programa para interpretar MiniHaskell 
