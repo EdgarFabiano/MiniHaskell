@@ -21,10 +21,11 @@ public abstract class Expressao {
 	/**
 	 * Toda expressao pode estar bem ou mal tipada. 
 	 * Expressoes "mal-tipadas" nao deveriam ser avaliadas. 
+	 * @return 
 	 * 
 	 * @return <b>true</b> caso a expressao seja bem tipada.
 	 */
-	public abstract checarTipo();
+	public abstract boolean checarTipo();
 	
 	/**
 	 * Retorna o tipo da expressao 

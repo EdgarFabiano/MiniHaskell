@@ -12,10 +12,5 @@ public class ExpressaoSoma extends ExpressaoBinInt {
 	public Valor avaliar(Integer x, Integer y) {
 		return new ValorInteiro(x + y);
 	}
-
-	public void aceitar(Visitor v) {
-		v.visitar(this);
-	}
-
 	
 }

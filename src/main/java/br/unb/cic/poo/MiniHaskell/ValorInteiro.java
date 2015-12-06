@@ -10,9 +10,5 @@ public class ValorInteiro extends ValorParametrizado<Integer>{
 	public Tipo tipo() {
 		return Tipo.INTEIRO;
 	}
-
-	public void aceitar(Visitor v) {
-		v.visitar(this);
-	}
 		
 }

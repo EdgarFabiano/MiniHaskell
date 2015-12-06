@@ -2,7 +2,7 @@ package br.unb.cic.poo.MiniHaskell;
 
 import br.unb.cic.poo.MiniHaskell.visitors.Visitor;
 
-public class ExpRef implements Expressao {
+public class ExpRef extends Expressao {
 	private String id;
 	
 	public ExpRef(String id) {
@@ -26,9 +26,5 @@ public class ExpRef implements Expressao {
 		}
 		return exp.tipo();
 	}
-
-	public void aceitar(Visitor v) {
-		//TODO: pendente a implementacao.
-	} 
 
 }

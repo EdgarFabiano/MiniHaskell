@@ -11,7 +11,4 @@ public class ValorBooleano extends ValorParametrizado<Boolean> {
 		return Tipo.BOOL;
 	}
 
-	public void aceitar(Visitor v) {
-		v.visitar(this);
-	}
 }
