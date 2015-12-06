@@ -2,7 +2,7 @@
 
 + Escrever mais testes para a expressão *aplicação de função*. (Lucas)
 
-+ Criar novos tipos de expressão (multiplicação, igualdade, maior igual, menor igual, ...). (Bruno)
+(ok) Criar novos tipos de expressão (multiplicação, igualdade, maior igual, menor igual, ...). (Bruno)
 
 + Corrigir os visitors já implementados, mas que estão "quebrados" na versão 03 da implementação do projeto MiniHaskell. O IfThenElse, no visitor PP, nao foi testado ainda. (Edgar)
 
