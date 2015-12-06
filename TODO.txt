@@ -1,6 +1,6 @@
 (ok) Converter Expressão para uma classe abstrata (Lucas)
 
-+ Escrever mais testes para a expressão *aplicação de função*. (Lucas)
+(ok)+ Escrever mais testes para a expressão *aplicação de função*. (Lucas)
 
 (ok) Criar novos tipos de expressão (multiplicação, igualdade, maior igual, menor igual, ...). (Bruno)
 
