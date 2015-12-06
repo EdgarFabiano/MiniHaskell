@@ -1,5 +1,6 @@
 package br.unb.cic.poo.MiniHaskell.visitors;
 
+import br.unb.cic.poo.MiniHaskell.Expressao;
 import br.unb.cic.poo.MiniHaskell.ExpressaoLet;
 import br.unb.cic.poo.MiniHaskell.ExpressaoSoma;
 import br.unb.cic.poo.MiniHaskell.IfThenElse;
@@ -12,5 +13,6 @@ public interface Visitor {
 	public void visitar(ExpressaoSoma exp);
 	public void visitar(IfThenElse exp);
 	public void visitar(ExpressaoLet exp);
+	public void visitar(Expressao exp);
 	public void init();
 }
