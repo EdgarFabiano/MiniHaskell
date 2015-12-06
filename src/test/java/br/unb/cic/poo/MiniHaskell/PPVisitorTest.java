@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 
 public class PPVisitorTest extends TestCase {
 
-	public void testSubExp() {
+	public void testPP() {
 		Expressao v3 = new ValorInteiro(3);
 		Expressao s1 = new ExpressaoSoma(new ValorInteiro(1), new ValorInteiro(2));
 		Expressao s2 = new ExpressaoSoma(s1, v3);

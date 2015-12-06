@@ -1,14 +1,15 @@
-+ Converter Expressão para uma classe abstrata
+(ok) Converter Expressão para uma classe abstrata (Lucas)
 
-+ Escrever mais testes para a expressão *aplicação de função* 
++ Escrever mais testes para a expressão *aplicação de função*. (Lucas)
 
-+ Escrever uma função fatorial e verificar se funciona o mecanismo de recursão. Para isso, novos tipos de expressão são necessários (multiplicação, igualdade, maior igual, menor igual, ...).
++ Criar novos tipos de expressão (multiplicação, igualdade, maior igual, menor igual, ...). (Bruno)
 
-+ Corrigir os visitors já implementados, mas que estão "quebrados" na versão 03 da implementação do projeto MiniHaskell .
++ Corrigir os visitors já implementados, mas que estão "quebrados" na versão 03 da implementação do projeto MiniHaskell. O IfThenElse, no visitor PP, nao foi testado ainda. (Edgar)
+
++ Escrever uma função fatorial e verificar se funciona o mecanismo de recursão. Para isso, serão usados os novos tipos de expressão acima.
 
 + Incluir o tipo Lista, que pode ser uma lista vazia ou uma lista com um elemento seguido de uma outra lista (é um tipo recursivo). Em Haskell, seria algo como:
-
-data List a = Nill | a (List a)
+	data List a = Nill | a (List a)
 
 * Escreva funções que manipulam listas (tamanho, elemento, ...).
 
