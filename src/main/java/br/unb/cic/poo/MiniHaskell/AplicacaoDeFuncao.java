@@ -42,18 +42,21 @@ public class AplicacaoDeFuncao extends Expressao{
 	}
 	
 	public boolean checarTipo() {
-		// TODO Auto-generated method stub
-		return false;
+		for (Expressao expressao : argumentos) {
+			if (expressao.checarTipo() == false) {
+				return false;
+			}
+		}
+		DecFuncao funcao = AmbienteExecucao.getInstance().consultaFuncao(nome);
+		return funcao.getCorpo().checarTipo();
 	}
 
 	public Tipo tipo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void aceitar(Visitor v) {
-		// TODO Auto-generated method stub
-		
+		DecFuncao funcao = AmbienteExecucao.getInstance().consultaFuncao(nome);
+		if (checarTipo()) {
+			return funcao.getCorpo().tipo();
+		}
+		return Tipo.ERROR;
 	}
 
 }
