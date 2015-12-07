@@ -43,6 +43,41 @@ public class ListaTest extends TestCase {
 		
 		//verifica que ele eh igual ao primeiro valor da lista
 		assertEquals(v1.getValor(), res.getValor());
+		
+		//remove o primeiro elemento da lista (no caso, o v2)
+		ExpressaoRemoveLista rem = new ExpressaoRemoveLista(0, lista);
+		lista = (Lista) rem.avaliar();
+		
+		//recupera o elemento da cabeca da lista
+		get = new ExpressaoGetElemLista(0, lista);
+		res = (ValorInteiro) get.avaliar();
+		
+		//verifica que ele eh igual ao elemento da cabeca da lista
+		assertEquals(v1.getValor(), res.getValor());
+		
+		//verifica se lança exceção ao requerer um elemento nao existente
+		try {
+			get = new ExpressaoGetElemLista(1, lista);
+			res = (ValorInteiro) get.avaliar();
+			fail();
+		}
+		catch(RuntimeException e) {
+			assertTrue(true);
+		}
+		
+		//adiciona o valor 2 na cabeca da lista novamente
+		lista = (Lista) add.avaliar();
+		
+		//remove agora o segundo elemento da lista (no caso, o v1)
+		rem = new ExpressaoRemoveLista(1, lista);
+		lista = (Lista) rem.avaliar();
+		
+		//recupera o elemento da cabeca da lista
+		get = new ExpressaoGetElemLista(0, lista);
+		res = (ValorInteiro) get.avaliar();
+		
+		//verifica que ele eh igual ao elemento da cabeca da lista
+		assertEquals(v2.getValor(), res.getValor());
 	}
 
 }
