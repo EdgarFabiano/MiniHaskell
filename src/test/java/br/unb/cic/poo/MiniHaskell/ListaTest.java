@@ -19,6 +19,16 @@ public class ListaTest extends TestCase {
 		
 		assertNotNull(lista.getProximo());
 		assertEquals(v1.getValor().intValue()+1, v2.getValor().intValue());
+		
+		ExpressaoGetElemLista get = new ExpressaoGetElemLista(0, lista);
+		ValorInteiro res = (ValorInteiro) get.avaliar();
+		
+		assertEquals(v2.getValor(), res.getValor());
+		
+		get = new ExpressaoGetElemLista(1, lista);
+		res = (ValorInteiro) get.avaliar();
+		
+		assertEquals(v1.getValor(), res.getValor());
 	}
 
 }
