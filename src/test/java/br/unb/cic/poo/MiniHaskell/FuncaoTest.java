@@ -45,4 +45,32 @@ public class FuncaoTest extends TestCase {
 		assertEquals(new Integer(15), res.getValor());
 	}
 	
+	public void testFuncComplexa() {
+		List<String> argumentos = new ArrayList<>();
+		argumentos.add("x");
+		argumentos.add("y");
+		argumentos.add("z");
+		argumentos.add("w");
+		
+		Expressao exp = new ExpressaoSoma(new ExpressaoMultiplicacao(new Fatorial(new ExpRef("x")), new ExpRef("y")), new ExpressaoMultiplicacao(new ExpRef("z"), new ExpRef("w")));
+		
+		DecFuncao funcao = new DecFuncao("complexa", argumentos, exp);
+		AmbienteExecucao.getInstance().declaraFuncao(funcao);
+		
+		List<Expressao> args = new ArrayList<>();
+		ValorInteiro v1 = new ValorInteiro(3);
+		ValorInteiro v2 = new ValorInteiro(2);
+		ValorInteiro v3 = new ValorInteiro(2);
+		ValorInteiro v4 = new ValorInteiro(4);
+		
+		args.add(v1);
+		args.add(v2);
+		args.add(v3);
+		args.add(v4);
+		
+		AplicacaoDeFuncao aplicacao = new AplicacaoDeFuncao("complexa", args);
+		
+		ValorInteiro res = (ValorInteiro) aplicacao.avaliar();
+		assertEquals(new Integer(20), res.getValor());
+	}
 }
