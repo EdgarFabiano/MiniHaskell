@@ -5,29 +5,43 @@ import junit.framework.TestCase;
 public class ListaTest extends TestCase {
 	
 	public void testLista () {
-		Lista lista = new Lista(new ValorInteiro(1), null);
+		ValorInteiro v1 = new ValorInteiro(1);
+		ValorInteiro v2 = new ValorInteiro(2);
 		
-		ExpressaoAddLista add = new ExpressaoAddLista(new ValorInteiro(2), lista);
+		//Lista inicial com valor 1 na cabeca
+		Lista lista = new Lista(v1, null);
+		
+		ExpressaoAddLista add = new ExpressaoAddLista(v2, lista);
 		
 		ExpressaoGetTamLista tam = new ExpressaoGetTamLista(lista);
-		ValorInteiro v1 = (ValorInteiro) tam.avaliar();
+		//verifica o tamanho da lista antes de adicionar
+		ValorInteiro tam1 = (ValorInteiro) tam.avaliar();
 		
+		//adiciona o valor 2 na lista
 		lista = (Lista) add.avaliar();
 		
+		//verifica o tamanho da lista depois de adicionar
 		tam = new ExpressaoGetTamLista(lista);
-		ValorInteiro v2 = (ValorInteiro) tam.avaliar();
+		ValorInteiro tam2 = (ValorInteiro) tam.avaliar();
 		
+		//verifica que o elemento foi adicionado
 		assertNotNull(lista.getProximo());
-		assertEquals(v1.getValor().intValue()+1, v2.getValor().intValue());
 		
+		//verifica que o tamanho mudou
+		assertEquals(tam1.getValor().intValue()+1, tam2.getValor().intValue());
+		
+		//recupera o elemento da cabeca da lista
 		ExpressaoGetElemLista get = new ExpressaoGetElemLista(0, lista);
 		ValorInteiro res = (ValorInteiro) get.avaliar();
 		
+		//verifica que ele eh igual ao valor adicionado
 		assertEquals(v2.getValor(), res.getValor());
 		
+		//recupera o elemento depois da cabeca
 		get = new ExpressaoGetElemLista(1, lista);
 		res = (ValorInteiro) get.avaliar();
 		
+		//verifica que ele eh igual ao primeiro valor da lista
 		assertEquals(v1.getValor(), res.getValor());
 	}
 
