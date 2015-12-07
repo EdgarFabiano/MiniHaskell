@@ -2,7 +2,7 @@ package br.unb.cic.poo.MiniHaskell;
 
 public class ExpressaoAddLista extends Expressao {
 	private Valor exp;
-	Lista list;
+	private Lista list;
 	
 	public ExpressaoAddLista(Valor exp, Lista list) {
 		this.exp = exp;
@@ -23,6 +23,14 @@ public class ExpressaoAddLista extends Expressao {
 	public Tipo tipo() {
 		// TODO Auto-generated method stub
 		return list.tipo();
+	}
+
+	public Valor getExp() {
+		return exp;
+	}
+
+	public Lista getList() {
+		return list;
 	}
 
 }

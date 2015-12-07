@@ -37,4 +37,12 @@ public class ExpressaoGetElemLista extends Expressao {
 		return list.tipo();
 	}
 
+	public int getIndex() {
+		return index;
+	}
+
+	public Lista getList() {
+		return list;
+	}
+
 }

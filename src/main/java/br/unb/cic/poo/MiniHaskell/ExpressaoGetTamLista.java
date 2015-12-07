@@ -30,4 +30,8 @@ public class ExpressaoGetTamLista extends Expressao {
 		return Tipo.INTEIRO;
 	}
 
+	public Lista getList() {
+		return list;
+	}
+
 }

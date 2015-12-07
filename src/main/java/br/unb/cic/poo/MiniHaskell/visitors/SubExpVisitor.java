@@ -3,6 +3,9 @@ package br.unb.cic.poo.MiniHaskell.visitors;
 import br.unb.cic.poo.MiniHaskell.AplicacaoDeFuncao;
 import br.unb.cic.poo.MiniHaskell.ExpRef;
 import br.unb.cic.poo.MiniHaskell.Expressao;
+import br.unb.cic.poo.MiniHaskell.ExpressaoAddLista;
+import br.unb.cic.poo.MiniHaskell.ExpressaoGetElemLista;
+import br.unb.cic.poo.MiniHaskell.ExpressaoGetTamLista;
 import br.unb.cic.poo.MiniHaskell.ExpressaoIgualdade;
 import br.unb.cic.poo.MiniHaskell.ExpressaoLet;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMaiorIgual;
@@ -11,6 +14,7 @@ import br.unb.cic.poo.MiniHaskell.ExpressaoMultiplicacao;
 import br.unb.cic.poo.MiniHaskell.ExpressaoSoma;
 import br.unb.cic.poo.MiniHaskell.Fatorial;
 import br.unb.cic.poo.MiniHaskell.IfThenElse;
+import br.unb.cic.poo.MiniHaskell.Lista;
 import br.unb.cic.poo.MiniHaskell.ValorBooleano;
 import br.unb.cic.poo.MiniHaskell.ValorInteiro;
 
@@ -101,6 +105,32 @@ public class SubExpVisitor implements Visitor{
 	public void visitar(Fatorial exp) {
 		total += 1;
 		exp.getExp().aceitar(this);	
+	}
+
+	@Override
+	public void visitar(Lista exp) {
+		total += 1;
+		exp.getExpTopo().aceitar(this);
+		exp.getProximo().aceitar(this);
+	}
+
+	@Override
+	public void visitar(ExpressaoAddLista exp) {
+		total += 1;
+		exp.getExp().aceitar(this);
+		exp.getList().aceitar(this);
+	}
+
+	@Override
+	public void visitar(ExpressaoGetElemLista exp) {
+		total += 2;
+		exp.getList().aceitar(this);
+	}
+
+	@Override
+	public void visitar(ExpressaoGetTamLista exp) {
+		total += 1;
+		exp.getList().aceitar(this);
 	}
 
 }

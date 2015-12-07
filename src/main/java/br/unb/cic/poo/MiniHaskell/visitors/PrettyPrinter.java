@@ -3,6 +3,9 @@ package br.unb.cic.poo.MiniHaskell.visitors;
 import br.unb.cic.poo.MiniHaskell.AplicacaoDeFuncao;
 import br.unb.cic.poo.MiniHaskell.ExpRef;
 import br.unb.cic.poo.MiniHaskell.Expressao;
+import br.unb.cic.poo.MiniHaskell.ExpressaoAddLista;
+import br.unb.cic.poo.MiniHaskell.ExpressaoGetElemLista;
+import br.unb.cic.poo.MiniHaskell.ExpressaoGetTamLista;
 import br.unb.cic.poo.MiniHaskell.ExpressaoIgualdade;
 import br.unb.cic.poo.MiniHaskell.ExpressaoLet;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMaiorIgual;
@@ -11,6 +14,7 @@ import br.unb.cic.poo.MiniHaskell.ExpressaoMultiplicacao;
 import br.unb.cic.poo.MiniHaskell.ExpressaoSoma;
 import br.unb.cic.poo.MiniHaskell.Fatorial;
 import br.unb.cic.poo.MiniHaskell.IfThenElse;
+import br.unb.cic.poo.MiniHaskell.Lista;
 import br.unb.cic.poo.MiniHaskell.ValorBooleano;
 import br.unb.cic.poo.MiniHaskell.ValorInteiro;
 
@@ -121,6 +125,34 @@ public class PrettyPrinter implements Visitor {
 		res += "(";
 		exp.getExp().aceitar(this);
 		res += ")!";
+	}
+
+	@Override
+	public void visitar(Lista exp) {
+		exp.getExpTopo().aceitar(this);
+		if (exp.getProximo() != null) {
+			res += ", ";
+			exp.getProximo().aceitar(this);
+		}
+	}
+
+	@Override
+	public void visitar(ExpressaoAddLista exp) {
+		res += "Adicionar ";
+		exp.getExp().aceitar(this);
+		res += "a lista";
+	}
+
+	@Override
+	public void visitar(ExpressaoGetElemLista exp) {
+		res += "Recuperar elemento da posicao " + exp.getIndex();	
+		res += "da lista";
+		
+	}
+
+	@Override
+	public void visitar(ExpressaoGetTamLista exp) {
+		res += "Recuperar tamanho da lista";		
 	}
 
 }
