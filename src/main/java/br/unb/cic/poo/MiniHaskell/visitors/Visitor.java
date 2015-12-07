@@ -11,6 +11,7 @@ import br.unb.cic.poo.MiniHaskell.ExpressaoLet;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMaiorIgual;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMenorIgual;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMultiplicacao;
+import br.unb.cic.poo.MiniHaskell.ExpressaoRemoveLista;
 import br.unb.cic.poo.MiniHaskell.ExpressaoSoma;
 import br.unb.cic.poo.MiniHaskell.Fatorial;
 import br.unb.cic.poo.MiniHaskell.IfThenElse;
@@ -36,5 +37,6 @@ public interface Visitor {
 	public void visitar(ExpressaoAddLista exp);
 	public void visitar(ExpressaoGetElemLista exp);
 	public void visitar(ExpressaoGetTamLista exp);
+	public void visitar(ExpressaoRemoveLista exp);
 	public void init();
 }

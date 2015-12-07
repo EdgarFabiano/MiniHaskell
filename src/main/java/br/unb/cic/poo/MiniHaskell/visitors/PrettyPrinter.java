@@ -11,6 +11,7 @@ import br.unb.cic.poo.MiniHaskell.ExpressaoLet;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMaiorIgual;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMenorIgual;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMultiplicacao;
+import br.unb.cic.poo.MiniHaskell.ExpressaoRemoveLista;
 import br.unb.cic.poo.MiniHaskell.ExpressaoSoma;
 import br.unb.cic.poo.MiniHaskell.Fatorial;
 import br.unb.cic.poo.MiniHaskell.IfThenElse;
@@ -138,21 +139,26 @@ public class PrettyPrinter implements Visitor {
 
 	@Override
 	public void visitar(ExpressaoAddLista exp) {
-		res += "Adicionar ";
+		res += "Adicionar(";
 		exp.getExp().aceitar(this);
-		res += "a lista";
+		res += ")";
 	}
 
 	@Override
 	public void visitar(ExpressaoGetElemLista exp) {
-		res += "Recuperar elemento da posicao " + exp.getIndex();	
-		res += "da lista";
-		
+		res += "RecuperarElemento(" + exp.getIndex();	
+		res += ")";
 	}
 
 	@Override
 	public void visitar(ExpressaoGetTamLista exp) {
-		res += "Recuperar tamanho da lista";		
+		res += "Tamanho()";		
+	}
+
+	@Override
+	public void visitar(ExpressaoRemoveLista exp) {
+		res += "Remover(" + exp.getIndex();
+		res += ")";
 	}
 
 }

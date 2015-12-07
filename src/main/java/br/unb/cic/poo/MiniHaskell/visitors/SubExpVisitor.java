@@ -11,6 +11,7 @@ import br.unb.cic.poo.MiniHaskell.ExpressaoLet;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMaiorIgual;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMenorIgual;
 import br.unb.cic.poo.MiniHaskell.ExpressaoMultiplicacao;
+import br.unb.cic.poo.MiniHaskell.ExpressaoRemoveLista;
 import br.unb.cic.poo.MiniHaskell.ExpressaoSoma;
 import br.unb.cic.poo.MiniHaskell.Fatorial;
 import br.unb.cic.poo.MiniHaskell.IfThenElse;
@@ -130,6 +131,12 @@ public class SubExpVisitor implements Visitor{
 	@Override
 	public void visitar(ExpressaoGetTamLista exp) {
 		total += 1;
+		exp.getList().aceitar(this);
+	}
+
+	@Override
+	public void visitar(ExpressaoRemoveLista exp) {
+		total += 2;
 		exp.getList().aceitar(this);
 	}
 
