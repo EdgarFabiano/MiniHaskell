@@ -44,4 +44,8 @@ public class Fatorial extends Expressao {
 		return Tipo.ERROR;
 	}
 
+	public Expressao getExp() {
+		return exp;
+	}
+
 }

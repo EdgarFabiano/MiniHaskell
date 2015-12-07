@@ -1,8 +1,15 @@
 package br.unb.cic.poo.MiniHaskell.visitors;
 
+import br.unb.cic.poo.MiniHaskell.AplicacaoDeFuncao;
+import br.unb.cic.poo.MiniHaskell.ExpRef;
 import br.unb.cic.poo.MiniHaskell.Expressao;
+import br.unb.cic.poo.MiniHaskell.ExpressaoIgualdade;
 import br.unb.cic.poo.MiniHaskell.ExpressaoLet;
+import br.unb.cic.poo.MiniHaskell.ExpressaoMaiorIgual;
+import br.unb.cic.poo.MiniHaskell.ExpressaoMenorIgual;
+import br.unb.cic.poo.MiniHaskell.ExpressaoMultiplicacao;
 import br.unb.cic.poo.MiniHaskell.ExpressaoSoma;
+import br.unb.cic.poo.MiniHaskell.Fatorial;
 import br.unb.cic.poo.MiniHaskell.IfThenElse;
 import br.unb.cic.poo.MiniHaskell.ValorBooleano;
 import br.unb.cic.poo.MiniHaskell.ValorInteiro;
@@ -47,13 +54,73 @@ public class PrettyPrinter implements Visitor {
 	}
 
 	public void visitar(ExpressaoLet exp) {
-		// TODO Auto-generated method stub
-		
+		res += "Let (" + exp.getId();
+		res += " = ";
+		exp.getAtribuicao().aceitar(this);
+		res += ") in ";
+		exp.getCorpo().aceitar(this);
 	}
 
-	public void visitar(Expressao exp) {
-		// TODO Auto-generated method stub
-		
+	public void visitar(Expressao exp) {		
+	}
+
+	@Override
+	public void visitar(ExpRef exp) {
+		res += exp.getId();
+	}
+
+	@Override
+	public void visitar(ExpressaoIgualdade exp) {
+		res += "(";
+		exp.lhs().aceitar(this);
+		res += " == ";
+		exp.rhs().aceitar(this);
+		res += ")";
+	}
+
+	@Override
+	public void visitar(AplicacaoDeFuncao exp) {
+		res += exp.getNome();
+		res += "(";
+		for (Expressao e : exp.getArgumentos()) {
+			e.aceitar(this);
+			res += " ";
+		}
+		res += ")";
+	}
+
+	@Override
+	public void visitar(ExpressaoMaiorIgual exp) {
+		res += "(";
+		exp.lhs().aceitar(this);
+		res += " >= ";
+		exp.rhs().aceitar(this);
+		res += ")";
+	}
+
+	@Override
+	public void visitar(ExpressaoMenorIgual exp) {
+		res += "(";
+		exp.lhs().aceitar(this);
+		res += " <= ";
+		exp.rhs().aceitar(this);
+		res += ")";
+	}
+
+	@Override
+	public void visitar(ExpressaoMultiplicacao exp) {
+		res += "(";
+		exp.lhs().aceitar(this);
+		res += " * ";
+		exp.rhs().aceitar(this);
+		res += ")";
+	}
+
+	@Override
+	public void visitar(Fatorial exp) {
+		res += "(";
+		exp.getExp().aceitar(this);
+		res += ")!";
 	}
 
 }

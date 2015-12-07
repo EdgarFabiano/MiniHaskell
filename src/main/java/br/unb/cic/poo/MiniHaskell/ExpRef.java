@@ -27,4 +27,8 @@ public class ExpRef extends Expressao {
 		return exp.tipo();
 	}
 
+	public String getId() {
+		return id;
+	}
+
 }

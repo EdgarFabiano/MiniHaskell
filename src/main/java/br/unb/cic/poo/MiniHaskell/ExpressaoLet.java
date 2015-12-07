@@ -32,5 +32,17 @@ public class ExpressaoLet extends Expressao {
 		}
 		return Tipo.ERROR;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public Expressao getAtribuicao() {
+		return atribuicao;
+	}
+
+	public Expressao getCorpo() {
+		return corpo;
+	}
 	
 }
